@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "https://deploy-be-plum.vercel.app/",
+  baseURL: import.meta.env.API_URL || "https://deploy-be-plum.vercel.app/",
 });
 
 export const setAuthToken = (token?: string) => {

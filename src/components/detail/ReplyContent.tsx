@@ -8,7 +8,6 @@ import Like from "../home/Like";
 import useStore from "../../store/hooks";
 
 export default function ReplyContent() {
-  const baseUrl = import.meta.env.VITE_IMG_URL
   const { id } = useParams();
   const paramId = Number(id);
   const { replies, getRepliesByPost } = useStore();
@@ -19,7 +18,7 @@ export default function ReplyContent() {
   }, []);
 
   return replies.map((item, index) => {
-    const imageUrl = item.author.profile_pic ? `${baseUrl}${item.author.profile_pic}` : "";
+    const imageUrl = item.author.profile_pic ? `${item.author.profile_pic}` : "";
     return (
       <Box key={index} sx={{ padding: 2, display: "flex", gap: 2, borderBottom: "1px solid gray" }}>
         <Box sx={{ display: "flex", alignItems: "start" }}>
@@ -35,7 +34,7 @@ export default function ReplyContent() {
             <ImageList sx={{ display: "flex", width: "550px", alignItems: "center", gap: 1, marginY: 2, justifyContent: "space-around" }}>
               {item.images.map((image, index) => (
                 <ImageListItem key={index}>
-                  <img style={{ width: "100px", height: "100px", objectFit: "cover" }} src={`${baseUrl}${image.image}`} alt={image.image} loading="lazy" />
+                  <img style={{ width: "100px", height: "100px", objectFit: "cover" }} src={`${image.image}`} alt={image.image} loading="lazy" />
                 </ImageListItem>
               ))}
             </ImageList>
