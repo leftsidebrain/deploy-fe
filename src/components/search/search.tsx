@@ -2,7 +2,6 @@ import { Icon } from "@iconify/react";
 import { Box, InputAdornment, TextField, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getSearch } from "../../hooks/user/getUserInput";
-import baseUrl from "../../utils/baseURL";
 import Outlined from "../common/button/Outlined";
 import { IUsers } from "../../store/types/store";
 
@@ -61,7 +60,7 @@ const InputSearch = () => {
           {!users
             ? null
             : users.map((item, index) => {
-                const img = `${baseUrl.baseUrlImg}${item.profile_pic}`;
+                const img = `${item.profile_pic}`;
                 return (
                   <Box key={index} sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                     <Box sx={{ display: "flex", gap: "10px", alignItems: "center" }}>
