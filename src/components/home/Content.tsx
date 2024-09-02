@@ -15,7 +15,7 @@ export default function Content() {
   }, []);
 
   return posts.map((item, index) => {
-    const imageUrl = item.author.profile_pic ? `{item.author.profile_pic}` : "";
+    const imageUrl = item.author.profile_pic ? `${item.author.profile_pic}` : "";
     return (
       <Box key={index} sx={{ padding: 2, display: "flex", gap: 2, borderBottom: "1px solid gray" }}>
         <Box sx={{ display: "flex", alignItems: "start" }}>
