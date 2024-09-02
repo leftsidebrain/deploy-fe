@@ -7,7 +7,6 @@ import Outlined from "../button/Outlined";
 import { useState } from "react";
 import useStore from "../../../store/hooks";
 import { api } from "../../../hooks/api";
-import baseUrl from "../../../utils/baseURL";
 const style = {
   position: "absolute" as "absolute",
   top: "50%",
@@ -21,7 +20,7 @@ const style = {
 export default function ProfileModal() {
   const { user, setUser, getPosts } = useStore();
   const userId = user.id;
-  const img = baseUrl.baseUrlImg + user.profile?.profile_pic;
+  const img = user.profile?.profile_pic;
 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => {
@@ -55,7 +54,7 @@ export default function ProfileModal() {
     if (username) formData.append("username", username);
     if (bio) formData.append("bio", bio);
 
-    if (profilePicture) formData.append("profile_pic", profilePicture);
+    if (profilePicture) formData.append("file", profilePicture);
 
     try {
       const user = await api.patch(`/users/${userId}`, formData, {

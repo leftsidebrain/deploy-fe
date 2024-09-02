@@ -2,7 +2,6 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
-import baseUrl from "../../../utils/baseURL";
 import { Icon } from "@iconify/react";
 import useStore from "../../../store/hooks";
 import { usePostFunction } from "../../../hooks/posts/getPostFucntion";
@@ -37,7 +36,7 @@ export default function PostModal() {
     if (content) formData.append("content", content);
     if (imgaesPost)
       for (let i = 0; i < imgaesPost.length; i++) {
-        formData.append("images", imgaesPost[i]);
+        formData.append("files", imgaesPost[i]);
       }
     await handlePost(formData);
   };
@@ -62,7 +61,7 @@ export default function PostModal() {
             >
               <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 4 }}>
                 <Box sx={{ display: "flex", gap: 2 }}>
-                  <img style={{ width: "40px", height: "40px", objectFit: "cover", borderRadius: 50 }} src={`${baseUrl.baseUrlImg}${user.profile?.profile_pic}`} alt="" />
+                  <img style={{ width: "40px", height: "40px", objectFit: "cover", borderRadius: 50 }} src={`${user.profile?.profile_pic}`} alt="" />
                   <input
                     value={content}
                     onChange={(e) => {
