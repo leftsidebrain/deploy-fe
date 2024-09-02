@@ -2,7 +2,6 @@ import { Box, Typography } from "@mui/material";
 import Outlined from "../common/button/Outlined";
 import useStore from "../../store/hooks";
 import { useEffect, useState } from "react";
-import baseUrl from "../../utils/baseURL";
 import { api } from "../../hooks/api";
 import { IUser } from "../../store/types/store";
 
@@ -69,7 +68,7 @@ export default function ProfileSuggest() {
         Suggest Person
       </Typography>
       {users.map((item, index) => {
-        const img = `${baseUrl.baseUrlImg}${item.profile_pic}`;
+        const img = `${item.profile_pic}`;
         const isFollowing = statusFollow.get(item.id) || false;
         return (
           <Box key={index} sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>

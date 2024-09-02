@@ -1,6 +1,5 @@
 import { Box, Typography } from "@mui/material";
 import PostModal from "../common/modal/PostModal";
-import baseUrl from "../../utils/baseURL";
 import useStore from "../../store/hooks";
 
 export default function Post(props: any) {
@@ -14,7 +13,7 @@ export default function Post(props: any) {
       </Typography>
       <Box sx={{ display: "flex", gap: "10px", alignItems: "center", justifyContent: "space-between" }}>
         <Box sx={{ display: "flex", gap: 2 }}>
-          <img style={{ width: "40px", height: "40px", objectFit: "cover", borderRadius: 50 }} src={`${baseUrl.baseUrlImg}${user.profile?.profile_pic}`} alt="" />
+          <img style={{ width: "40px", height: "40px", objectFit: "cover", borderRadius: 50 }} src={`${user.profile?.profile_pic}`} alt="" />
 
           <PostModal />
         </Box>

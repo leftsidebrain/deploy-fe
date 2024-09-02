@@ -5,7 +5,6 @@ import useStore from "../../store/hooks";
 import Modal from "@mui/material/Modal";
 import { useState } from "react";
 import { usePostFunction } from "../../hooks/posts/getPostFucntion";
-import baseUrl from "../../utils/baseURL";
 
 const style = {
   position: "absolute" as "absolute",
@@ -65,7 +64,7 @@ export default function Sidebar() {
             >
               <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 4 }}>
                 <Box sx={{ display: "flex", gap: 2 }}>
-                  <img style={{ width: "40px", height: "40px", objectFit: "cover", borderRadius: 50 }} src={`${baseUrl.baseUrlImg}${user.profile?.profile_pic}`} alt="" />
+                  <img style={{ width: "40px", height: "40px", objectFit: "cover", borderRadius: 50 }} src={`${user.profile?.profile_pic}`} alt="" />
                   <input
                     value={content}
                     onChange={(e) => {

@@ -4,7 +4,6 @@ import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
 import { Icon } from "@iconify/react";
 import useStore from "../../store/hooks";
-import baseUrl from "../../utils/baseURL";
 import { HandleReply } from "../../hooks/reply/ReplyFunction";
 import { useParams } from "react-router-dom";
 
@@ -67,7 +66,7 @@ export default function ReplyModal() {
             >
               <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 4 }}>
                 <Box sx={{ display: "flex", gap: 2 }}>
-                  <img style={{ width: "40px", height: "40px", objectFit: "cover", borderRadius: 50 }} src={`${baseUrl.baseUrlImg}${user.profile?.profile_pic}`} alt="" />
+                  <img style={{ width: "40px", height: "40px", objectFit: "cover", borderRadius: 50 }} src={`${user.profile?.profile_pic}`} alt="" />
 
                   <input
                     value={content}
