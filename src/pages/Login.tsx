@@ -1,3 +1,4 @@
+import LoginForm from "../components/login/LoginForm";
 import { Box } from "@mui/material";
 
 export default function Login() {
@@ -11,6 +12,8 @@ export default function Login() {
         padding: "20px",
         flexDirection: "column",
       }}
-    ></Box>
+    >
+      <LoginForm />
+    </Box>
   );
 }
