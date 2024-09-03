@@ -152,12 +152,7 @@ export default function ProfileModal() {
             </form>
           </Box>
           <Box sx={{ mt: 2, borderTop: "1px solid white", padding: 2, display: "flex", justifyContent: "end" }}>
-            <Button
-              type="submit"
-              onClick={() => {
-                handleSubmit;
-              }}
-            >
+            <Button type="submit" onClick={handleSubmit}>
               Save
             </Button>
           </Box>
