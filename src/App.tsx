@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import routes from "./routes/routes";
 import useStore from "./store/hooks";
 import { useEffect } from "react";
-import { api } from "./hooks/api";
+import { api, setAuthToken } from "./hooks/api";
 
 function App() {
   const store = useStore();
@@ -19,6 +19,7 @@ function App() {
           Authorization: `Bearer ${token}`,
         },
       });
+
       store.setUser({
         username: response.data.data.username,
         email: response.data.data.email,
@@ -32,6 +33,7 @@ function App() {
       });
 
       localStorage.setItem("token", token);
+      setAuthToken(token);
     } catch (error) {
       console.log(error);
       localStorage.removeItem("token");
